@@ -37,8 +37,8 @@ This project lets you run a modern cyber range or security operations lab with a
 ### 2. Clone and Configure
 
 ```bash
-git clone https://github.com/nxsniper-fira/cyberfusion-lab.git
-cd cyberfusion-lab
+git clone https://github.com/nxsniper-fira/cyberfusion.git
+cd cyberfusion
 cp .env.example .env         # Edit database, JWT secret, ports, etc.
 ```
 
