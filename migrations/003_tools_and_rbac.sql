@@ -1,0 +1,45 @@
+CREATE TABLE IF NOT EXISTS tools (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    name VARCHAR(100) NOT NULL UNIQUE,
+    description TEXT,
+    category VARCHAR(50),
+    default_parameters JSONB,
+    requires_scope BOOLEAN DEFAULT TRUE,
+    ui_schema JSONB,
+    icon VARCHAR(100)
+);
+
+-- Insert 30+ tools
+INSERT INTO tools (name, description, category, default_parameters, ui_schema, icon)
+VALUES
+('Nmap', 'Network scanner', 'Recon', '{"scanType":"tcp_syn"}', '{"fields":[{"name":"target","type":"text"}]}', 'nmap.png'),
+('Hydra', 'Login cracker', 'Password', '{"service":"ssh"}', '{"fields":[{"name":"target","type":"text"},{"name":"username","type":"text"}]}', 'hydra.png'),
+('Hashcat', 'Password hash cracker', 'Password', '{}', '{"fields":[{"name":"hashfile","type":"file"}]}', 'hashcat.png'),
+('Metasploit', 'Exploitation framework', 'Exploit', '{}', '{"fields":[{"name":"target","type":"text"},{"name":"exploit","type":"text"}]}', 'metasploit.png'),
+('Burp Suite', 'Web vulnerability scanner', 'Web', '{}', '{"fields":[{"name":"target","type":"text"}]}', 'burp.png'),
+('Nikto', 'Web server scanner', 'Web', '{}', '{"fields":[{"name":"target","type":"text"}]}', 'nikto.png'),
+('Gobuster', 'Directory brute-forcer', 'Web', '{}', '{"fields":[{"name":"target","type":"text"}]}', 'gobuster.png'),
+('Dirb', 'Directory brute-forcer', 'Web', '{}', '{"fields":[{"name":"target","type":"text"}]}', 'dirb.png'),
+('SQLmap', 'Automated SQL injection', 'Web', '{}', '{"fields":[{"name":"target","type":"text"}]}', 'sqlmap.png'),
+('Wfuzz', 'Web application fuzzer', 'Web', '{}', '{"fields":[{"name":"target","type":"text"}]}', 'wfuzz.png'),
+('John the Ripper', 'Password cracker', 'Password', '{}', '{"fields":[{"name":"hashfile","type":"file"}]}', 'john.png'),
+('Netcat', 'Network utility', 'Recon', '{}', '{"fields":[{"name":"target","type":"text"},{"name":"port","type":"number"}]}', 'netcat.png'),
+('Enum4linux', 'Windows/Samba enumeration', 'Recon', '{}', '{"fields":[{"name":"target","type":"text"}]}', 'enum4linux.png'),
+('Impacket', 'Python networking library', 'Post-Exploitation', '{}', '{"fields":[{"name":"target","type":"text"}]}', 'impacket.png'),
+('Responder', 'LLMNR, NBT-NS, MDNS poisoner', 'Post-Exploitation', '{}', '{"fields":[{"name":"interface","type":"text"}]}', 'responder.png'),
+('CrackMapExec', 'Pentesting Swiss Army knife', 'Password', '{}', '{"fields":[{"name":"target","type":"text"}]}', 'cme.png'),
+('BloodHound', 'AD enumeration', 'Recon', '{}', '{"fields":[{"name":"target","type":"text"}]}', 'bloodhound.png'),
+('TheHarvester', 'Email, domain gatherer', 'Recon', '{}', '{"fields":[{"name":"domain","type":"text"}]}', 'theharvester.png'),
+('Amass', 'Subdomain enumeration', 'Recon', '{}', '{"fields":[{"name":"domain","type":"text"}]}', 'amass.png'),
+('Sublist3r', 'Subdomain enumeration', 'Recon', '{}', '{"fields":[{"name":"domain","type":"text"}]}', 'sublist3r.png'),
+('Fierce', 'DNS reconnaissance', 'Recon', '{}', '{"fields":[{"name":"domain","type":"text"}]}', 'fierce.png'),
+('Dnsenum', 'DNS enumeration', 'Recon', '{}', '{"fields":[{"name":"domain","type":"text"}]}', 'dnsenum.png'),
+('Nikto', 'Web server scanner', 'Web', '{}', '{"fields":[{"name":"target","type":"text"}]}', 'nikto.png'),
+('WPScan', 'WordPress scanner', 'Web', '{}', '{"fields":[{"name":"target","type":"text"}]}', 'wpscan.png'),
+('SSLScan', 'SSL/TLS scanner', 'Web', '{}', '{"fields":[{"name":"target","type":"text"}]}', 'sslscan.png'),
+('WhatWeb', 'Website fingerprinting', 'Web', '{}', '{"fields":[{"name":"target","type":"text"}]}', 'whatweb.png'),
+('Searchsploit', 'Exploit database search', 'Exploit', '{}', '{"fields":[{"name":"query","type":"text"}]}', 'searchsploit.png'),
+('XSStrike', 'XSS detection', 'Web', '{}', '{"fields":[{"name":"target","type":"text"}]}', 'xsstrike.png'),
+('Fuff', 'Web fuzzer', 'Web', '{}', '{"fields":[{"name":"target","type":"text"}]}', 'fuff.png'),
+('Social-Engineer Toolkit', 'Phishing, SE simulation', 'Social Engineering', '{}', '{"fields":[{"name":"scenario","type":"text"}]}', 'setoolkit.png'),
+('Aircrack-ng', 'Wi-Fi security auditing', 'Wireless', '{}', '{"fields":[{"name":"interface","type":"text"}]}', 'aircrack.png');

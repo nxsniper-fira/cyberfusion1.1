@@ -1,0 +1,56 @@
+[
+  {
+    "name": "Get all tools",
+    "request": {
+      "method": "GET",
+      "header": [{ "key": "Authorization", "value": "Bearer {TOKEN}" }],
+      "url": { "raw": "{{baseUrl}}/api/v1/tools", "host": ["{{baseUrl}}"], "path": ["api", "v1", "tools"] }
+    }
+  },
+  {
+    "name": "Get tools by team",
+    "request": {
+      "method": "GET",
+      "header": [{ "key": "Authorization", "value": "Bearer {TOKEN}" }],
+      "url": { "raw": "{{baseUrl}}/api/v1/tools?team=red_team", "host": ["{{baseUrl}}"], "path": ["api", "v1", "tools"], "query": [{ "key": "team", "value": "red_team" }] }
+    }
+  },
+  {
+    "name": "Add tool (admin)",
+    "request": {
+      "method": "POST",
+      "header": [
+        { "key": "Authorization", "value": "Bearer {TOKEN}" },
+        { "key": "Content-Type", "value": "application/json" }
+      ],
+      "body": {
+        "mode": "raw",
+        "raw": "{\"name\":\"Test Tool\",\"description\":\"Demo tool\",\"team\":\"red_team\",\"category\":\"Recon\",\"default_parameters\":{},\"requires_scope\":true,\"ui_schema\":{\"fields\":[{\"name\":\"target\",\"type\":\"text\"}]},\"icon\":\"test.png\"}"
+      },
+      "url": { "raw": "{{baseUrl}}/api/v1/tools", "host": ["{{baseUrl}}"], "path": ["api", "v1", "tools"] }
+    }
+  },
+  {
+    "name": "Update tool (admin)",
+    "request": {
+      "method": "PUT",
+      "header": [
+        { "key": "Authorization", "value": "Bearer {TOKEN}" },
+        { "key": "Content-Type", "value": "application/json" }
+      ],
+      "body": {
+        "mode": "raw",
+        "raw": "{\"name\":\"Updated Tool\",\"description\":\"Updated desc\",\"team\":\"blue_team\",\"category\":\"SIEM\",\"default_parameters\":{},\"requires_scope\":true,\"ui_schema\":{\"fields\":[{\"name\":\"query\",\"type\":\"text\"}]},\"icon\":\"updated.png\"}"
+      },
+      "url": { "raw": "{{baseUrl}}/api/v1/tools/{{toolId}}", "host": ["{{baseUrl}}"], "path": ["api", "v1", "tools", "{{toolId}}"] }
+    }
+  },
+  {
+    "name": "Delete tool (admin)",
+    "request": {
+      "method": "DELETE",
+      "header": [{ "key": "Authorization", "value": "Bearer {TOKEN}" }],
+      "url": { "raw": "{{baseUrl}}/api/v1/tools/{{toolId}}", "host": ["{{baseUrl}}"], "path": ["api", "v1", "tools", "{{toolId}}"] }
+    }
+  }
+]

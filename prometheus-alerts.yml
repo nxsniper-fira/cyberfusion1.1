@@ -1,0 +1,11 @@
+groups:
+- name: cyberfusion-alerts
+  rules:
+  - alert: HighApiErrorRate
+    expr: rate(http_requests_total{status="500"}[5m]) > 0.1
+    for: 5m
+    labels:
+      severity: critical
+    annotations:
+      summary: "High number of 500 errors"
+      description: "API 500 error rate is above 0.1 req/sec for 5 minutes"

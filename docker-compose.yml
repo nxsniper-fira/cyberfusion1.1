@@ -1,0 +1,37 @@
+services:
+  # ...previous tools
+  blackeye:
+    build:
+      context: ./blackeye
+      dockerfile: Dockerfile
+    ports:
+      - "8086:8086"
+    networks: [ cyberfusion ]
+    restart: unless-stopped
+
+  setoolkit:
+    build:
+      context: ./setoolkit
+      dockerfile: Dockerfile
+    ports:
+      - "8087:8087"
+    networks: [ cyberfusion ]
+    restart: unless-stopped
+
+  responder:
+    build:
+      context: ./responder
+      dockerfile: Dockerfile
+    network_mode: "host"
+    restart: unless-stopped
+
+  crackmapexec:
+    build:
+      context: ./crackmapexec
+      dockerfile: Dockerfile
+    networks: [ cyberfusion ]
+    restart: unless-stopped
+
+networks:
+  cyberfusion:
+    driver: bridge
