@@ -1,4 +1,4 @@
-FROM python:3.8-slim
+FROM python:3.14.1-slim
 RUN apt-get update && apt-get install -y git python3-dev python3-pip build-essential
 RUN git clone --recursive https://github.com/n1nj4sec/pupy.git /opt/pupy
 WORKDIR /opt/pupy
