@@ -1,4 +1,4 @@
-FROM python:3.8-slim
+FROM python:3.14.1-slim
 RUN apt-get update && apt-get install -y git python3-pip build-essential python3-venv python3-setuptools
 RUN git clone https://github.com/trustedsec/social-engineer-toolkit.git /opt/setoolkit
 WORKDIR /opt/setoolkit
