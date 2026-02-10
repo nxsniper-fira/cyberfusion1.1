@@ -1,4 +1,4 @@
-FROM python:3.8-slim
+FROM python:3.14.3-slim
 RUN pip install flask requests
 COPY app.py /app/app.py
 WORKDIR /app
